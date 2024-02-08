@@ -11,4 +11,3 @@ C#
 HTML/CSS
 JavaScript/jQuery
 SQL Server
-![prj](https://github.com/MSharjeelRaja/Hospitalproject/assets/136254287/bc1e359c-5e89-448b-bbb6-8e3ca4287d19)
