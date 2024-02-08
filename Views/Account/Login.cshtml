@@ -1,0 +1,274 @@
+﻿@{
+        ViewBag.Title = "Login";
+    
+    }
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+
+    <style>
+
+        body {
+            color: #fff;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+          background: url('../../header2-1-1536x435.jpg') center/cover no-repeat fixed;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(17, 7, 7, 0.5);
+            padding: 0px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .navbar img {
+                height: 70px;
+                width: 680px;
+                margin-left: -110px;
+            }
+
+            .navbar ul {
+                list-style: none;
+                display: flex;
+                margin-top:20px
+            }
+
+
+                .navbar ul li {
+                    margin: 0 30px;
+                    color: black;
+                    font-size: 20px;
+                }
+
+                    .navbar ul li:hover {
+                        color: red;
+                    }
+
+        .form-horizontal img {
+            height: 107px;
+            width: 150px;
+            margin-left: 102px;
+            margin-top: -28px;
+            margin-bottom: -31px;
+        }
+
+
+        .form-horizontal:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 20px rgb(239, 6, 6);
+            transition: 1s ease;
+        }
+
+        .form-horizontal {
+            max-width: 400px; /* Set a maximum width for better readability */
+            width: 100%;
+            padding: 20px;
+            height: 440px;
+            background-color: rgba(21, 21, 21, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgb(214, 145, 145);
+            margin: 90px auto;
+        }
+
+        h2,
+        h4 {
+            text-align: center;
+            font-size: 35px;
+            font-weight: bold;
+            margin-top: 16px;
+            margin-bottom: 15px;
+        }
+
+        .control-label {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        form-group {
+            width: 100%;
+            margin-top: 40px;
+            margin-left: 1px;
+        }
+
+
+        .form-control {
+            flex: 2;
+            width: calc(100% - 30px);
+            padding: 10px;
+            margin-left: 10px;  Adjust margin as needed 
+            box-sizing: border-box;
+            display: inline-block;
+        }
+
+        .btn-default:hover {
+            background-color: #030303;
+            color: #ED1B24;
+            transition: 0.9s ease;
+        }
+
+        .btn-default {
+            background-color: #ED1B24;
+            color: #fff;
+            padding: 10px 60px;
+            font-size: 16px;
+            margin-left: 64px;
+            border-radius: 7px;
+            border: 2px solid #ED1B24;
+            margin-top: 20px;
+            font-weight: 700;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+            .forgot-password a {
+                color: #fff;
+                text-decoration: underline;
+                 Smooth transition effect 
+            }
+
+                .forgot-password a:hover {
+                    color: red;
+                    transition: color 1s ease;
+                }
+        button {
+            width: 77px;
+            color: white;
+            background-color: #890d0d;
+            margin-top: 30px;
+            
+            border: 2px solid #890d0d;
+            border-radius:10px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
+
+        label {
+            text-align: left;
+            padding: 30px;
+            margin: 10px;
+        }
+
+        input {
+            width: 300px;
+        }
+
+        .form-control {
+            width: 100%; /* Full width input */
+            margin-top: 10px;
+        }
+        button:hover{
+            background-color:black;
+            color:white;
+        }
+
+        button {
+            width: 200px; /* Full width button */
+            margin-top: 20px;
+
+        }
+
+
+        .text-danger {
+            color: #ff5e5e;
+        }
+    </style>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"
+          integrity="sha512-KyZXEAg3QhqLMpG8r+Knujsl5+z0I5t9z/TNME5ZEsx4BCQkTXtk+np1Fzr1/W+MtkG6R8O3z8UJmMvktL8qGg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="~/logo.png">
+        <ul>
+            <li>Donations</li>
+            <li>Services & Departments</li>
+            <li>Join Us</li>
+            <li>Doctors</li>
+        </ul>
+    </div>
+
+
+
+    @*<div class="card">
+        <img class="card-img-top" src="~/bg4.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h1 class="card-title">MR Imran Khan</h1>
+            <p class="card-text">In December 2022, Shaukat Khanum Memorial Cancer Hospital and Research Centre in Lahore completed twenty-eight years when I was told that building and running a cancer hospital in Pakistan, where the majority of patients would be treated free of charge, was impossible. Your continuing support over the years has silenced the nay-sayers and has shown I remain more confident than ever that your generosity will enable us to open our third, and Pakistan’s largest, dedicated cancer hospital in Karachi at the end of 2023, as planned, Inshallah.</p>
+            <a href="#" class="btn btn-primary">Details</a>
+        </div>
+    </div>*@
+
+    <div class="form-horizontal">
+        <img src="~/logo2-removebg-preview.png" alt="Logo">
+        <h2>Login</h2>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+           
+
+
+            <hr />
+           
+
+    <div class="form-group">
+       
+        <input type="text" name="id" placeholder="UserName"
+    </div>
+
+    <div class="form-group">
+
+        <input type="password" name="password" placeholder="Password"
+
+    </div>
+
+
+    <div class="form-group inp">
+        <button type="submit">Login</button>
+    </div>
+            <div class="forgot-password">
+                <a href="forgot-password.html">Forgot Password ?</a>
+            </div>
+        }
+        @if (ViewBag.WelcomeMessage != null)
+        {
+            <h4>@ViewBag.WelcomeMessage</h4>
+        }
+
+    </div>
+   
+</body>
+
+</html>
+

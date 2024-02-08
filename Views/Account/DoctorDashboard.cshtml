@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Hospitalproject.Models.app>
+
+<h2>Doctor's Appointments</h2>
+
+<table class="table">
+    <tr>
+        <th>Appointment ID</th>
+        <th>Doctor ID</th>
+        <th>Patient ID</th>
+        <th>Appointment Date</th>
+    </tr>
+    @foreach (var appointment in Model)
+    {
+        <tr>
+            <td>@appointment.AppointmentID</td>
+            <td>@appointment.DoctorID</td>
+            <td>@appointment.PatientID</td>
+            <td>@appointment.AppointmentDateTime</td>
+        </tr>
+    }
+</table>

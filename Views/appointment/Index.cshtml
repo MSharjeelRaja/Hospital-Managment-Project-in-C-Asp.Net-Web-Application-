@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Hospitalproject.Models.app>
+  
+
+<h2>Appointments</h2>
+
+<table class="table">
+    <tr>
+        <th>AppointmentID</th>
+        <th>DoctorID</th>
+        <th>PatientID</th>
+        <th>Appointment Date & Time</th>
+    </tr>
+    @foreach (var appointment in Model)
+    {
+        <tr>
+            <td>@appointment.AppointmentID</td>
+            <td>@appointment.DoctorID</td>
+            <td>@appointment.PatientID</td>
+            <td>@appointment.AppointmentDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+        </tr>
+    }
+</table>

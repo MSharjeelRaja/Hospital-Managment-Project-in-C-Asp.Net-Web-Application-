@@ -1,0 +1,144 @@
+﻿@model List<Hospitalproject.Models.app>
+<style>
+    body {
+        color: #fff;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: url('../../header2-1-1536x435.jpg') center/cover no-repeat fixed;
+        font-family: 'Bebas Neue', sans-serif;
+    }
+
+    .navbar {
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgba(17, 7, 7, 0.5);
+        padding: 0px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .navbar img {
+            height: 70px;
+            width: 680px;
+            margin-left: -110px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+            .navbar ul li {
+                margin: 0 30px;
+                color: black;
+                font-size: 20px;
+            }
+
+                .navbar ul li:hover {
+                    color: red;
+                }
+
+    table {
+        width: 100%;
+        color: white;
+        background-color: #4e4e4e;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        color: white;
+    }
+
+    th {
+        background-color: #333;
+        color: white;
+    }
+
+    .tb {
+        background-color: rgba(21, 21, 21, 0.7);
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgb(214, 145, 145);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+        .tb h2 {
+            text-align: center;
+            font-size: 35px;
+            font-weight: bold;
+            margin-top: 16px;
+            margin-bottom: 15px;
+        }
+
+    p {
+        text-align: center;
+        color: white;
+        font-size: 18px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #d9534f;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+        .btn:hover {
+            background-color: #c9302c;
+        }
+</style>
+
+<div class="navbar">
+    <img src="~/logo.png">
+    <ul>
+        <li>Donations</li>
+        <li>Services & Departments</li>
+        <li>Join Us</li>
+        <li>Doctors</li>
+    </ul>
+</div>
+<div class="tb">
+    <h2>Doctor's Appointments</h2>
+
+    <table class="table">
+        <tr>
+            <th>Appointment ID</th>
+            <th>Patient ID</th>
+            <th>Appointment DateTime</th>
+        </tr>
+        @foreach (var appointment in Model)
+        {
+            <tr>
+                <td>@appointment.AppointmentID</td>
+                <td>@appointment.PatientID</td>
+                <td>@appointment.AppointmentDateTime</td>
+            </tr>
+        }
+    </table>
+
+
+
+  
+    <p>
+        @Html.ActionLink("Create Appointment", "CreateAppointment", new { patientID = ViewBag.PatientID }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Show All Doctors", "ShowAllDoctors", "Patient", new { patientID = ViewBag.PatientID }, new { @class = "btn btn-primary" })
+    </p>
+</div>

@@ -1,0 +1,118 @@
+﻿@model List<Hospitalproject.Models.app>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+
+    <style>
+
+        body {
+            color: #fff;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('../../header2-1-1536x435.jpg') center/cover no-repeat fixed;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(17, 7, 7, 0.5);
+            padding: 0px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .navbar img {
+                height: 70px;
+                width: 680px;
+                margin-left: -110px;
+            }
+
+            .navbar ul {
+                list-style: none;
+                display: flex;
+            }
+
+
+                .navbar ul li {
+                    margin: 0 30px;
+                    color: black;
+                    font-size: 20px;
+                }
+
+                    .navbar ul li:hover {
+                        color: red;
+                    }
+
+
+      
+        table{
+            color:white;
+            background-color:indianred:
+
+        }
+        table td,tr{
+            color:white;
+        }
+        .tb{
+            background-color:grey;
+            padding:20px;
+        }
+            .tb h2 {
+                text-align: center;
+                font-size: 35px;
+                font-weight: bold;
+                margin-top: 16px;
+                margin-bottom: 15px;
+            }
+
+    </style>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"
+          integrity="sha512-KyZXEAg3QhqLMpG8r+Knujsl5+z0I5t9z/TNME5ZEsx4BCQkTXtk+np1Fzr1/W+MtkG6R8O3z8UJmMvktL8qGg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+<div class="navbar">
+    <img src="~/logo.png">
+    <ul>
+        <li>Donations</li>
+        <li>Services & Departments</li>
+        <li>Join Us</li>
+        <li>Doctors</li>
+    </ul>
+</div>
+<div class="tb">
+<h2>Doctor's Appointments</h2>
+
+
+<table class="table">
+    <tr>
+        <th>Appointment ID</th>
+        <th>Patient ID</th>
+        <th>Appointment DateTime</th>
+    </tr>
+    @foreach (var appointment in Model)
+    {
+        <tr>
+            <td>@appointment.AppointmentID</td>
+            <td>@appointment.PatientID</td>
+            <td>@appointment.AppointmentDateTime</td>
+        </tr>
+    }
+</table>
+    </div>

@@ -1,0 +1,119 @@
+﻿@model Hospitalproject.Models.doctor
+
+@{
+   
+  
+        var countries = new List<SelectListItem>();
+        countries.Add(new SelectListItem { Text = "uk", Value = "uk" });
+        countries.Add(new SelectListItem { Text = "usa", Value = "usa" });
+        countries.Add(new SelectListItem { Text = "pakistan", Value = "pakistan" });
+        ViewBag.Title = "Signup";
+    
+}
+
+<h2>Signup</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>doctor</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <b>country</b>
+            <br />
+            @Html.DropDownListFor(model => model.country, countries, htmlAttributes: new { @class = "control-label col-md-2" })
+
+        </div>
+        <div class="form-group">
+            <fieldset>
+                <legend>GENDER </legend>
+
+
+                <div class="col-md-10">
+                    @Html.RadioButtonFor(model => model.Gender, "M", new { Checked = "true", htmlAttributes = new { @class = "form-control" } })
+                    <b>MALE</b>
+                    @Html.RadioButtonFor(model => model.Gender, "F", new { htmlAttributes = new { @class = "form-control" } })
+                    <b>FEMALE</b>
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.exp, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.exp, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.exp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.spec, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.spec, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.spec, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Paassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Paassword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Paassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}@if (IsPost)
+{<b>USER  Id :</b>@Model.did;
+<br />
+<b>USER  Name is  :</b>@Model.dname;
+<br />
+<b>USER Speciality :</b>@Model.spec;
+<br />
+<b>USER Experience :</b>@Model.exp;
+<br />
+<b>USER country :</b>@Model.country;
+<b>USER Password :</b>@Model.Paassword;
+<br />
+<b>USER Gender :</b>@Model.Gender;
+<br />
+<b>USER country :</b>@Model.country;
+<br />
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
